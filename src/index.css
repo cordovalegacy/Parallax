@@ -15,7 +15,8 @@ body{
 .parallax-container{
   background: inherit;
   min-height: 100vh;
-  /* overflow-x: hidden; */
+  width: 100%;
+  overflow-x: hidden;
 }
 
 header{
@@ -35,6 +36,7 @@ header{
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
 }
 
 #text{
@@ -43,10 +45,11 @@ header{
   text-shadow: 2px 2px 4px black;
 }
 
-.parallax img{
-  position: absolute;
+.parallax img {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  pointer-events: none;
+  height: 100vh;
+  object-fit: cover;
 }
