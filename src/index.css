@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap');
 
 * {
   margin: 0;
@@ -9,21 +10,21 @@
 }
 
 :root {
-  --index: calc(1.2vw+1.2vh);
+  --index: calc(1.2vw + 1.2vh);
   --text: #e7e7e0;
   --transition: transform 0.75s cubic-bezier(0.075, 0.5, 0, 1);
 }
 
-body{
+body {
   background-color: #010101;
   line-height: 1.5;
 }
 
-.header-main{
+.header-main {
   position: relative;
 }
 
-.header-main::after{
+.header-main::after {
   position: absolute;
   content: "";
   z-index: 100;
@@ -33,11 +34,11 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  bottom: calc(var(--index)* -4.5);
+  bottom: calc(var(--index) * -4.5);
 }
 
-.layers{
-  height: 100dvh;
+.layers {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,9 +47,9 @@ body{
   position: relative;
 }
 
-.layer-head{
+.layer-head {
   z-index: 1;
-  transform: translate3d(0, calc(var(--scrollTop)/2), 0);
+  transform: translate3d(0, calc(var(--scrollTop) / 10), 0);
   transition: var(--transition);
   will-change: transform;
   text-transform: uppercase;
@@ -56,21 +57,21 @@ body{
   text-shadow: 0 0 20px #ffc107;
 }
 
-.caption{
-  transform: translate3d(0, calc(var(--scrollTop)/5.7), 0);
-  font-size: 1.8em;
+.caption {
+  transform: translate3d(0, calc(var(--scrollTop) / 10), 0);
+  font-size: 3em;
   font-weight: bolder;
-  letter-spacing: calc(var(--index)/ 3.5);
-  margin-top: calc(var(--index) * -0.75);
+  letter-spacing: calc(var(--index) / 2.5);
+  margin-top: calc(var(--index) * -1.75);
 }
 
-.title{
-  font-size: 1.5em;
+.title {
+  font-size: 2em;
   font-weight: bolder;
-  letter-spacing: calc(var(--index) /2.5);
+  letter-spacing: calc(var(--index) / 2.5);
 }
 
-.img-layer{
+.img-layer {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -81,21 +82,21 @@ body{
   transition: var(--transition);
 }
 
-.layer-base{
-  transform: translate3d(0, calc(var(--index)/1.6), 0);
+.layer-base {
+  transform: translate3d(0, calc(var(--index) / 10.6), 0);
   z-index: 0;
 }
 
-.layer-mid{
-  transform: translate3d(0, calc(var(--index)/2.5), 0);
+.layer-mid {
+  transform: translate3d(0, calc(var(--index) / 2.5), 0);
 }
 
-.layer-front{
-  transform: translate3d(0, calc(var(--index)/5.6), 0);
+.layer-front {
+  transform: translate3d(0, calc(var(--index) / 5.6), 0);
 }
 
-.article-main{
-  min-height: 100dvh;
+.article-main {
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
   color: var(--text);
@@ -108,24 +109,131 @@ body{
   z-index: 10;
 }
 
-.m-header{
+.m-header {
   text-transform: uppercase;
   font-size: 1.5em;
-  letter-spacing: calc(var(--index)/7.6);
+  letter-spacing: calc(var(--index) / 7.6);
   transform: var(--mainarticle-transform);
   transition: var(--transition);
   will-change: transform;
 }
 
-.m-paragraph{
-  max-width: calc(var(--index)*30);
-  font-size: calc(var(--index)*0.9);
-  margin-top: calc(var(--index)/1.25);
+.m-paragraph {
+  max-width: calc(var(--index) * 30);
+  font-size: calc(var(--index) * 0.9);
+  margin-top: calc(var(--index) / 1.25);
   transform: var(--mainarticle-transform);
   transition: var(--transition);
   will-change: transform;
 }
 
-.content{
+.content {
   will-change: transform;
+}
+
+
+
+.logAndReg {
+  margin-top: 20px;
+  width: 500px;
+  background-color: #12172b;
+  opacity: 0.8;
+  border-radius: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: "Zilla Slab", sans-serif;
+}
+
+.input-form {
+  display: block;
+  padding-left: 0;
+  width: 100%;
+  margin-top: 2px;
+  font-size: larger;
+  color: #7a725f;
+  background-color: transparent;
+  border-bottom-width: 2px;
+  border-color: #29526e;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.input-form:focus {
+  border-color: #d9b945;
+}
+
+.label-form {
+  position: absolute;
+  font-size: larger;
+  color: #d9b945;
+  transition-duration: 300ms;
+  transform: translate(0, -6px) scale(1.75);
+  top: 1px;
+  z-index: -10;
+  transform-origin: 0;
+  left: 0;
+}
+
+.input-form:focus~.label-form,
+.input-form:not(:placeholder-shown)~.label-form {
+  font-size: larger;
+  transform: translate(0, -25px) scale(0.75);
+  color: #d9b945;
+}
+
+.input-form:not(:focus):placeholder-shown~.label-form {
+  transform: scale(1);
+  transform-origin: 0;
+  translate: 0;
+}
+
+.label-form::before {
+  content: attr(data-uppercase);
+  text-transform: uppercase;
+}
+
+/* Login and Registration buttons*/
+
+.button {
+  color: #d9b945;
+  transition-duration: 300ms;
+  transform: translateY(0);
+  border-width: 2px;
+  border-color: #d9b945;
+  background-color: #12172b;
+  font-size: medium;
+  border-radius: 9999px;
+  text-align: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 30%;
+  min-width: 8rem;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  color: #12172b;
+  background-color: #d9b945;
+}
+
+.button:focus {
+  outline: none;
+  ring: 4;
+  ring-color: #d9b945;
+}
+
+/* login and reg errors */
+.errors {
+  color: #65a2ce;
+  margin-top: -30px;
+  margin-bottom: 12px;
+  font-size: medium;
 }
