@@ -1,61 +1,44 @@
+import layerBaseImage from './img/layer-base.png'
+import layerMiddleImage from './img/layer-middle.png'
+import layerFrontImage from './img/layer-front.png'
+import dungeonImage from './img/dungeon.jpg'
+import { useEffect } from 'react'
+
 function App() {
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      let scrollY = window.scrollY;
+      document.documentElement.style.setProperty("--scrollTop", `${scrollY}px`)
+    })
+  }, [])
+
   return (
-    <div className="parallax-container">
-      <header className="text-center">
-        <h1 className="text-gray-300 font-bold text-4xl">Welcome to Aisop</h1>
-      </header>
-      <section className="parallax relative -mt-[2px]">
-        <div className="layer">
-          <img src="/2.svg" alt="background" className="bg-image" />
-        </div>
-        <div className="layer">
-          <img src="/1.svg" alt="moon" className="moon" />
-        </div>
-        <div className="layer">
-          <img src="/3.svg" alt="cloud" className="cloud" />
-        </div>
-        <div className="layer">
-          <img src="/4.svg" alt="cloud" className="cloud" />
-        </div>
-        <div className="layer">
-          <img src="/8.svg" alt="forest" className="forest hidden" />
-        </div>
-        <div className="layer">
-          <h2 className="font-mono font-bold tracking-wider text-blue-600" id="text">
-            AISOP
-          </h2>
-        </div>
-        <div className="layer">
-          <img src="/9.svg" alt="forest" className="forest" />
-        </div>
-        <div className="layer">
-          <img src="/10.svg" alt="range" className="range hidden" />
-        </div>
-        <div className="layer">
-          <img src="/11.svg" alt="range" className="range hidden" />
-        </div>
-        <div className="layer">
-          <img src="/12.svg" alt="range" className="range hidden" />
-        </div>
-        <div className="layer">
-          <img src="/13.svg" alt="mountain-top" className="mountain-top hidden" />
-        </div>
-        <div className="layer">
-          <img src="/14.svg" alt="forest" className="forest hidden" />
-        </div>
-        <div className="layer">
-          <img src="/15.svg" alt="forest" className="forest hidden" />
-        </div>
-        <div className="layer">
-          <img src="/6.svg" alt="tree" className="tree absolute right-0 bottom-0 w-1/2" />
-        </div>
-        <div className="layer">
-          <img src="/7.svg" alt="tree" className="tree absolute right-0 bottom-0" />
-        </div>
-        <div className="layer">
-          <img src="/5.svg" alt="wolf" className="wolf" />
-        </div>
-      </section>
+    <div className="wrapper">
+      <div className="content">
+        <header className="header-main">
+          <div className="layers">
+            <div className="layer-head">
+              <div className="caption">Welcome to AISOP</div>
+              <div className="title">Adventures</div>
+            </div>
+            <div className="img-layer layer-base" style={{ backgroundImage: `url(${layerBaseImage})` }}></div>
+            <div className="img-layer layer-mid" style={{ backgroundImage: `url(${layerMiddleImage})` }}></div>
+            <div className="img-layer layer-front" style={{ backgroundImage: `url(${layerFrontImage})` }}></div>
+          </div>
+        </header>
+        <article className='article-main' style={{ backgroundImage: `url(${dungeonImage})` }}>
+          <div className='m-article-content'>
+            <h2 className='m-header'>Write your own story</h2>
+            <p className='m-paragraph'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Autem expedita omnis minima officia ipsum totam dolore
+              optio blanditiis velit, laudantium deserunt voluptate ab
+              fugiat illo officiis. Illum quos nostrum inventore!
+            </p>
+          </div>
+        </article>
+      </div>
     </div>
   );
 }
